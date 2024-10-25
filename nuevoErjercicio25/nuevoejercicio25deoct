@@ -1,0 +1,54 @@
+drop database if exists fabrica_v; 
+create database fabrica_v; 
+use fabrica_v;
+
+-- -----------------------------------------------------
+-- Table mydb.Clientes
+-- -----------------------------------------------------
+CREATE TABLE Clientes (
+  idClientes INT NULL,
+  cedula VARCHAR(45) NULL,
+  nombres VARCHAR(45) NULL,
+  apellidos VARCHAR(45) NULL,
+  PRIMARY KEY (idClientes)
+  );
+
+
+-- -----------------------------------------------------
+-- Table mydb.Factura
+-- -----------------------------------------------------
+CREATE TABLE Factura (
+  id INT NULL,
+  iva DOUBLE NULL,
+  subtotal DOUBLE NULL,
+  total DOUBLE NULL,
+  Clientes_idClientes INT NOT NULL,
+  PRIMARY KEY (id, Clientes_idClientes),
+  
+  CONSTRAINT fk_Factura_Clientes
+    FOREIGN KEY (Clientes_idClientes)
+    REFERENCES Clientes (idClientes)
+    ON DELETE NO ACTION
+    );
+
+
+
+-- -----------------------------------------------------
+-- Table mydb.Detalle
+-- -----------------------------------------------------
+CREATE TABLE Detalle (
+  id INT NOT NULL,
+  cantidad DOUBLE NULL,
+  total DOUBLE NULL,
+  Factura_id INT NOT NULL,
+ 
+  PRIMARY KEY (id, Factura_id),
+ 
+  CONSTRAINT fk_Detalle_Factura1
+    FOREIGN KEY (Factura_id )
+    REFERENCES Factura (id )
+    ON DELETE NO ACTION
+   );
+
+
+
