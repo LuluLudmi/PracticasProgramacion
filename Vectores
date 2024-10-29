@@ -1,0 +1,54 @@
+   public static void main(String[] args) {
+        // TODO code application logic here
+        /*
+        Crear un vector que contenga el monto de la facturación total de una empresa
+        de los últimos 6 meses
+        informar:
+        la máxima facturación
+        la facturación más baja
+        el promedio de facturación
+         */
+        Scanner teclado = new Scanner(System.in);
+        int[] facturacion = {1098, 2300, 2658, 2998, 38784, 10457, 60000, 14487, 651245, 467845, 351548, 104751};
+
+        int total = 0;
+        for (int i = 0; i < facturacion.length; i++) {
+            total += facturacion[i];
+        }
+
+        System.out.println("total:" + total);
+        System.out.println("promedio:" + ((float) total / facturacion.length));
+        
+        int min = facturacion[0];
+        int max = facturacion[0];
+        for (int i = 1; i < facturacion.length; i++) {
+            if (facturacion[i] < min) {
+                min = facturacion[i];
+            }
+
+            if (facturacion[i] > max) {
+                max = facturacion[i];
+            }
+
+        }
+        System.out.println("Facturacion minima:" + min);
+        System.out.println("Facturacion maxima:" + max);
+        
+       /*
+        Pedirle al usuario que ingrese el tamaño del vector (longitud)
+        Luego pedirle al usuario que .
+        Al finalizar, por pantalla mostrar:
+            * Listado de números ingresados, uno al lado del otro separados por una barra.
+            * Sumatoria de todos los números
+            * Mayor número ingresado
+            * Menor número ingresado
+            * Promedio de números ingresados (entero, sin decimales)
+            * Cantidad de números pares
+            * Cantidad de números impares
+        */ 
+        System.out.println("Por favor,ingrese el tamaño del vector (longitud):");
+         int[] numeros=new int[10];
+         System.out.println("Por favor,cargue los números de cada posición:");
+         
+    }
+}
