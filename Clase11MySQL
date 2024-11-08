@@ -1,0 +1,176 @@
+drop database if exists reserva_v;
+create database reserva_v;
+use reserva_v;
+
+
+create table habitaciones(
+ habitacion_numero int primary key not null,
+ precio_por_noche decimal(8,2) not null,
+ piso int not null,
+ max_personas TINYINT NOT NULL,
+ tiene_cama_bebe TINYINT NOT NULL,
+ tiene_ducha TINYINT NOT NULL,
+ tiene_baño TINYINT NOT NULL,
+ tiene_balcon TINYINT NOT NULL
+
+);
+
+create table Huespedes(
+huesped_id int primary key not null,
+nombres varchar(45) not null,
+apellidos varchar(45) not null,
+telefono double not null,
+correo varchar(45) not null,
+direccion varchar(45) not null,
+ciudad varchar(45) not null,
+pais varchar(45) not null
+);
+
+
+create table Reservas (
+ reservas_id int primary key not null,
+ inicio_fecha datetime not null,
+ fin_fecha datetime NOT NULL,
+ habitacion int NOT NULL,
+ huesped int NOT NULL
+
+  
+);
+
+alter table reservas
+add constraint
+FK_reservas_habitaciones
+foreign key(habitacion)
+references habitaciones(habitacion_numero)
+on delete cascade ; -- si hago una modificacion la hara en las otras tablas
+
+alter table reservas
+add constraint
+FK_reservas_huespedes
+foreign key(huesped)
+references huespedes(huesped_id)
+on delete cascade;
+
+insert into habitaciones values
+(1,20000,1,3,0,1,1,1),
+(2,25000,1,3,0,1,1,1),
+(3,28000,1,3,0,1,1,1),
+(4,32000,2,4,0,1,1,1),
+(5,25000,2,4,0,1,1,1),
+(6,32000,2,4,0,1,1,1);
+
+insert into huespedes values
+(1,'Lorena','Martinez','1111111','lorem@gmail.com','castillo 123','caba','argentina'),
+(2,'Pablo','Gomez','2222222','pablog@gmail.com','san luis 456','caba','argentina'),
+(3,'Paula','Perez','3333333','paulap@gmail.com','mendoza 789','caba','argentina'),
+(4,'Mariano','Alonso','4444444','marianoa@gmail.com','Cordoba 369','caba','argentina'),
+(5,'luis','Mendez','55555555','luism@gmail.com','catamrca 567','caba','argentina');
+
+insert into reservas values
+(1,curtime(),'2024/11/10',1,1),
+(2,curtime(),'2024/11/08',2,2),
+(3,curtime(),'2024/11/04',3,3),
+(4,curtime(),'2024/11/06',4,4),
+(5,'2024/11/02','2024/11/07',5,3),
+(6,'2024/11/03','2024/11/10',6,4); -- corregir
+
+select*from reservas;
+
+use reserva_v;
+
+
+-- 1. Obtener todas las habitaciones disponibles
+select h.habitacion_numero,h.piso,h.max_personas
+from habitaciones h
+left join reservas r on  h.habitacion_numero=r.habitacion
+and r.inicio_fecha >=current_date() and r.fin_fecha>=current_date()
+where r.id_reserva is null; -- no es correcto
+ select h.habitacion_numero,h.precio_por_noche,h.piso,h.max_personas
+ from habitaciones h
+ left join reservas r on h.habitacion_numero=r.habitacion
+ where r.reservas_id is null;
+ 
+select h.habitacion_numero,h.precio_por_noche,h.piso,h.max_personas
+from habitaciones h
+left join reservas r on h.habitacion_numero=r.habitacion
+ where r.fin_fecha <= curdate();
+-- 2. Consultar reservas con información de los huéspedes
+select r.reservas_id,r.habitacion,r.inicio_fecha,r.fin_fecha,h.nombres,h.apellidos,h.correo,h.telefono
+from reservas r 
+join huespedes h on r.huesped=h.huesped_id;
+use reserva_v;
+
+
+-- 3. Obtener el total de reservas por huésped
+select h.nombres,h.apellidos,count(r.reservas_id)total_reservas
+from huespedes h left join reservas r
+on h.huesped_id=r.huesped
+group by h.huesped_id;
+-- 4. Listar las habitaciones ocupadas en una fecha específicadatos
+select h.habitacion_numero,h.precio_por_noche,h.piso,h.max_personas
+from habitaciones h
+left join reservas r on h.habitacion_numero=r.habitacion
+ where '2024/11/10' between r.inicio_fecha and r.fin_fecha;
+-- 5. Obtener información de reservas junto con el precio total
+select r.reservas_id,h.nombres,h.apellidos,h.telefono,
+r.inicio_fecha,r.fin_fecha,hb.precio_por_noche ,datediff(r.fin_fecha,r.inicio_fecha)* -- dataiff -> las fechas que estuvo el huesped
+hb.precio_por_noche precio_total
+from reservas r
+join huespedes h on r.huesped=h.huesped_id
+join habitaciones hb on r.habitacion=hb.habitacion_numero;
+-- 6. Buscar huéspedes por ciudad
+select*from huespedes
+where ciudad='caba';
+-- 7. Actualizar el precio de una habitación
+update habitaciones set precio_por_noche=120000
+where habitacion_numero=5;
+-- 8. Eliminar una reserva
+delete from reservas 
+where reservas_id=6;
+-- 9. Contar el número total de habitaciones por piso
+select piso,count(habitacion_numero)total_habitaciones
+from habitaciones
+group by piso order by piso;
+-- 10.Listar todos los huéspedes que han reservado habitaciones en un rango de fechas
+select hu.huesped_id,hu.nombres,hu.apellidos
+from huespedes hu
+join reservas r on hu.huesped_id=r.huesped
+where r.inicio_fecha>='2024/11/02' and r.fin_fecha<='2024/11/10';
+-- 11.Obtener habitaciones que permiten más de un cierto número de personas
+select*from habitaciones 
+where max_personas>3;
+-- 12.Listar huéspedes que han reservado una habitación con ducha
+select distinct h.nombres,h.apellidos
+from huespedes h
+join reservas r on h.huesped_id=r.huesped
+join habitaciones hb on r.habitacion=hb.habitacion_numero
+where hb.tiene_ducha=1;
+-- 13.Encontrar la habitación más cara
+select habitacion_numero,precio_por_noche
+from habitaciones 
+order by precio_por_noche desc limit 1; -- la primer habitacion mas cara
+-- 14.Obtener las reservas que terminan hoy
+select r.reservas_id,h.nombres,h.apellidos,r.habitacion
+from reservas r
+join huespedes h on r.huesped=h.huesped_id
+where r.fin_fecha=curdate();
+-- 15.Obtener el promedio de precio por noche de las habitaciones
+
+select round( avg(precio_por_noche),2) precio_promedio
+from habitaciones;
+-- 16.Mostrar habitaciones que tienen balcón
+select*from habitaciones where tiene_balcon=1; -- 0 significa que no tiene y si es 1 es que tiene.
+-- 17.Buscar reservas de un huésped específico
+select r.reservas_id,r.habitacion,r.inicio_fecha,r.fin_fecha,h.nombres,h.apellidos
+from reservas r join huespedes h on r.huesped=h.huesped_id
+where h.huesped_id=3;
+-- 18.Listar habitaciones y sus respectivos huéspedes
+select ha.habitacion_numero,hu.* -- es para que me muestre todos los datos,nombre,apellido etc
+from reservas r join huespedes hu on hu.huesped_id=r.huesped
+join habitaciones ha on ha.habitacion_numero=r.habitacion;
+-- 19.Contar el número de reservas por habitación
+select r.habitacion,count(r.reservas_id) as numero_reservas
+from reservas r group by r.habitacion;
+-- 20.Eliminar huéspedes que no tienen reservas
+delete from huespedes where huesped_id
+not in (select huesped from reservas); 
