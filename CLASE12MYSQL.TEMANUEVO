@@ -1,0 +1,157 @@
+   ******   Clase12  ******
+
+drop database if exists biblioteca_V;
+create database biblioteca_V;
+
+use biblioteca_V;
+
+create table libros(
+    codLibro int primary key auto_increment,
+    nombre varchar(45)not null,
+    autor varchar(45)not null,
+    editorial varchar(45)not null,
+    fechaPublicacion date,
+    codTipoLibro int
+);
+
+create table tipoLibro(
+    codTipoLibro int primary key,
+    descripcion varchar(45)not null
+);
+
+create table socios (
+    codSocio int primary key auto_increment,
+    nombre varchar(45) not null,
+    apellido varchar(45)not null,
+    telefono varchar(20)not null,
+    celular varchar(20),
+    dni varchar(8)not null,
+    direccion varchar(45)not null,
+    codigoPostal varchar (12)not null,
+    email varchar(45),
+    categoriaSocio varchar(45)
+);
+
+create table tipoSocio(
+   categoriaSocio varchar(45)primary key,
+    descripcion varchar(45)
+);
+
+create table reservas(
+    codSocio int,
+    codLibro int,
+    fechaReserva date,
+    primary key(codSocio,codLibro,fechaReserva)
+);
+
+alter table libros
+add constraint
+FK_libros_tipoLibro
+foreign key (codTipoLibro)
+references TipoLibro(codTipoLibro)
+on delete cascade;
+
+alter table socios
+add constraint
+FK_Socios_TipoSocios
+foreign key(categoriaSocio)
+references tipoSocio(categoriaSocio)
+on delete cascade;
+
+alter table reservas
+add constraint
+FK_reservas_socios
+foreign key(codSocio)
+references socios(codsocio)
+on delete cascade;
+
+alter table reservas
+add constraint 
+FK_reserva_libros
+foreign key(codLibro)
+references libros(codLibro)
+on delete cascade;
+
+insert tipoLibro values
+('1','Enciclopedia'),
+('2','Manual'),
+('3','Catalogo'),
+('4','diccionario');
+select * from tipoLibro;
+
+insert into libros (nombre,autor,editorial,fechapublicacion,codTipoLibro)values
+('MysQL al maximo','Davis Garcia','EMECE','2010/10/10','2'),
+('El Caballero','Juan Cruz','J. Cruz','2000/08/11','1'),
+('Todo java','Jose fernandez','Planeta','2015/10/22','3'),
+('Mi primer Dicionario','Real Academia','Larousse','2001/2/24','4');
+select * from libros;
+
+insert into tipoSocio(categoriaSocio,descripcion) values
+('Estandar','Abono normal'),
+('Vitalicio','No pagas Abono'),
+('Temporario','Abono con recargo');
+select * from tipoSocio;
+
+insert into socios(nombre,apellido,celular,dni,direccion,codigopostal,email,categoriaSocio)values
+('Ana','Sosa','1158961458','25784125','Larrea 458','1456','anasosa@gmail.com','Estandar'),
+('Jose','Torres','1178452365','8456987','Salta 458','1478','josetorres@gmail.com','Vitalicio'),
+('Maria','Gomez','1147893654','23456789','La Rioja','1235','mariagomez@gmail.com','Temporario'),
+('Juan','Roque','1123564578','10256358','Mexico 457','1423','juanroque@gmail.com','Vitalicio'),
+('Pedro','Ruiz','1145783659','26589412','Puan 4526','1789','pedroruiz@gmail.com','Temporario');
+select * from socios;
+
+insert into reservas (codSocio,codLibro,fechaReserva)values
+(4,2,curdate()),
+(3,1,curdate()),
+(2,3,'2024/11/10'),
+(1,4,curdate());
+
+select * from reservas;
+
+-- para relacionar todas las tablas
+select * from tipoSocio ts 
+join socios s on ts.categoriaSocio=s.categoriaSocio
+join reservas r on s.codSocio=r.codSocio
+join libros l on r.codLibro=l.codLibro
+join tipoLibro tl on tl.codTipoLibro=l.codTipoLibro;
+
+-- vistas
+ create view biblioteca_v as select ts.categoriaSocio,ts.descripcion
+ descripcion_socio,s.codSocio,s.nombre,s.apellido,s.telefono,s.celular,s.dni,s.direccion,
+ s.codigoPostal,s.email,r.fechaReserva fecha_reserva,l.nombre nombre_libro,l.autor,
+ l.editorial,l.fechaPublicacion,tl.codTipoLibro codigo_libro,tl.descripcion descripcion_tipo_libro
+ from tipoSocio ts 
+ join socios s on ts.categoriaSocio=s.categoriaSocio
+ join reservas r on s.codSocio=r.codSocio
+ join libros l on r.codLibro=l.codLibro
+ join tipoLibro tl on tl.codTipoLibro=l.codTipoLibro;
+ drop view biblioteca_v;
+ show tables;
+ select*from biblioteca_v;
+ 
+-- a que socio se le presto enciclopedia?
+-- Borrar una vista drop view biblioteca_v;
+-- esta nueva forma de llamar es como un filtrado. Ahora llamamos a la vista
+select*from biblioteca_v
+where codigo_libro='2';
+-- que se le presto a Juan Roque?
+select descripcion_Tipo_Libro descripcion,nombre_libro
+from biblioteca_v
+where nombre='juan' and apellido='Roque';
+-- que clase de socio es Juan Roque?  CORREGIR!!!
+select ts.categoriaSocio,ts.descripcion descripcion_socio
+from biblioteca_v
+where nombre='juan' and apellido='Roque';
+-- cuantos libros se le prestaron a los socios temporales?
+-- A quienes se le prestaron manuales?
+-- Cuantos libros se le prestaron a Juan Roque
+-- que libro se prestaron el dia de hoy?
+
+
+
+
+
+
+
+
+
