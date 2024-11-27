@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <h1>Página de Formulario</h1>
+
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Nombre:
+                </td>
+                <td>
+                    <input type="text" placeholder="Ingrese su/s nombre/s" minlength="3" maxlength="30" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Apellido:
+                </td>
+                <td>
+                    <input type="text" placeholder="Ingrese su/s apellido/s" minlength="3" maxlength="30" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Edad:
+                </td>
+                <td>
+                    <input type="number" min="1" max="99" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    DNI:
+                </td>
+                <td>
+                    <input type="text" pattern="\d{8}" maxlength="8" inputmode="numeric" required
+                        title="Debe tener 8 dígitos" placeholder="Ingrese su DNI sin puntos">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Teléfono:
+                </td>
+                <td>
+                    <input type="tel" minlength="10" maxlength="14">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    <input type="email" pattern="^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Género:
+                </td>
+                <td>
+                    <input type="radio" name="genero" value="femenimo" required>Femenino<br>
+                    <input type="radio" name="genero" value="masculino">Masculino<br>
+                    <input type="radio" name="genero" value="x">X<br>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Estado civil
+                </td>
+                <td>
+                    <select name="estado_civil" required>
+                        <option value="">Seleccione</option>
+                        <option value="soltero">Soltero/a</option>
+                        <option value="casado">Casado/a</option>
+                        <option value="viudo">Viudo/a</option>
+                        <option value="divorciado">Divorciado/a</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Intereses:
+                </td>
+                <td>
+                    <input type="checkbox" name="intereses" value="musica">Musica<br>
+                    <input type="checkbox" name="intereses" value="deportes">Deportes<br>
+                    <input type="checkbox" name="intereses" value="arte">Arte<br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input type="password" minlength="8" maxlength="12" required
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe tener entre 8 y 12 caracteres, incluyendo una letra mayuscula,una 
+                    minuscula y un numero.">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fecha de nacimiento:
+                </td>
+                <td>
+                    <input type="date" min="1924-01-01" max="2024-11-27" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comentarios:
+                </td>
+                <td>
+                    <textarea rows="8" cols="20" maxlength="200" placeholder="Ingrese hasta 200 caracteres"> 
+
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                      Acepto terminos y condiciones
+                      <input type="checkbox" required>
+                    </label>
+                </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>
+                 <br>
+                 <input type="submit" value="enviar"> 
+                </td>
+               
+            </tr>
+            </tr>
+        </table>
+    </form>
+
+
+    <br><br>
+    <a href="index.html" title="Volver a la página de inicio">Volver</a>
+</body>
+
+</html>
