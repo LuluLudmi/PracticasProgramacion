@@ -1,0 +1,23 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&display=swap');
+
+h2 {
+    color: red;
+    background-color: antiquewhite ;
+}
+h3{
+    color: rgb(255,0, 0)
+}
+h4{
+    color: #ff0000;
+    font-family:Montserrat Underline;
+}
+h5{
+    color: rgba(255, 00, 00, 0.3);
+}
+h6{
+  Comentarios
+  link es cuando aun no se ha creado vinculo
+  a
+}

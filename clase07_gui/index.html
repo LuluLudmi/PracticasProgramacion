@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase03</title>
+</head>
+<body>
+    <!-- comentarios en línea -->
+    <!-- 
+        bloque de
+        comentarios
+     -->
+    <!-- atajo de teclado ctrl + } -->
+
+    <h1>Hola Mundo!</h1>
+
+    <!-- Enunciados, encabezados -->
+    <h1>Título 1</h1>
+    <h2>Título 2</h2>
+    <h3>Título 3</h3>
+    <h4>Título 4</h4>
+    <h5>Título 5</h5>
+    <h6>Título 6</h6>
+
+    <!-- Párrafos -->
+    <p id="parrafo1">
+        Los párrafos contienen texto. No debería trabarse ningún texto sin estar anidado 
+        (dentro de una etiqueta) en un elemento HTML.
+        Es muy importante considerar el valor semántico de los elementos.
+        En HTML, el término "semántico" se refiere al uso de etiquetas que no solo describen
+        la apariencia de un elemento, sino que también comunican el propósito o el significado 
+        tanto para los navegadores, como para los motores de búsqueda y otros sistemas de 
+        asistencia como los lectores de pantalla.
+        Las etiquetas nos ayudan a que el contenido sea más comprensible y estructurado, lo que
+        mejora la accesibilidad y la optimización en los motores de búsqueda.
+    </p>
+
+    <p>
+        Los elementos se clasifican en dos tipos principales: elementos de bloque y elementos 
+        de línea. <br>
+        Elementos de bloque: siempre comienzan en una nueva línea. <br>
+        Pueden contener otros elementos de bloque o elementos en línea. <br>
+        Ejemplos: etiquetas h (h1...h6), p, div, form, listas <br><br>
+        Elementos de línea: no comienzan en una nueva línea y solo ocupan el ancho necesario. <br>
+        Pueden contener texto u otros elementos en línea.
+        Ejemplos: span, a, img, strong, em, label, input <br><br>
+        Algunos ejemplos básicos: <br>
+        <'b'> (bold) -> negrita <br>
+        <'i'> (italic) -> cursiva <br>
+        <'u'> (underline) -> subrayado <br>
+        Estos elementos ya no se utilizan, el estilo se define desde css <br>
+        Y la importancia semántica, la vamos a manejar con los elementos:
+        strong -> texto resaltado en negrita (considera un peso especial de importancia) <br>
+        em -> texto en italic (considera un énfasis especial de importancia) <br>
+    </p>
+
+    <!-- Elementos anidados -->
+    <p>
+        Lorem ipsum <strong>dolor sit amet</strong> consectetur, adipisicing elit. Consequuntur <em>maiores ullam aliquam</em>, laborum inventore reprehenderit fuga ea minus magni id distinctio modi a ipsam quo officiis laudantium doloribus nisi repellendus.
+    </p>
+
+    <!-- Listas -->
+    <!-- Listas ordenadas -->
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ol>
+
+    <ol type="A">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ol>
+
+    <ol type="a">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ol>
+
+    <ol type="I">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ol>
+
+    <!-- Anteriormente, se utilizaba el atributo type, pero actualmente en HTML5 fue
+     reemplazado por el uso de la propiedad de CSS list-style-type -->
+     <ol style="list-style-type: upper-latin;">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ol>
+
+    <!-- Listas desordenadas -->
+    <ul style="list-style-type: circle;">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+
+    <ul style="list-style-type: disc;">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+
+    <ul style="list-style-type: square;">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+
+    <!-- Vínculos -->
+    <!-- Vínculos relativos -->
+    <!-- Son los que permiten interconectar los archivos de nuestra página -->
+    <a href="formulario.html" title="Ir a la página del formulario">Formulario</a>
+
+    <!-- Vínculos absolutos -->
+    <!-- Especifican la dirección completa o URL de un recurso
+     Se utilizan cuando se quiere enlazar a recursos externos o a páginas específicas 
+     que se encuentran en dominios diferentes -->
+    <a href="http://centro8smata.org.ar" title="Página oficial del Centro8" target="_blank">Centro 8</a>
+
+    <!-- Vínculos de correo electrónico -->
+    <!-- Permiten abrir automáticamente el programa de correo electrónico del ordenador del usuario -->
+    <a href="mailto:franciscoacuna.centro8@gmail.com">Enviar un email</a>
+
+    <!-- Vínculos de teléfono -->
+    <!-- Actualmente se puede incluir un número telefónico de modo tal que se active WhatsApp o 
+     cualquier aplicación que sirva para comunicarse por medio de un número telefónico -->
+    <a href="tel:+5401122334455">Llame ya!</a>
+
+    <!-- Vínculos ancla -->
+    <!-- Se dirije a una parte de la misma página -->
+    <a href="#parrafo1" title="Ir al primer párrafo">Parrafo 1</a>
+
+    <br><br>
+
+    <!-- Imágenes -->
+    <!-- La etiqueta que se utiliza para las imágenes es img y es una etiqueta vacía, es decir, que no
+      lleva cierre. 
+      El atributo src establece la dirección en donde se encuentra la imagen.
+      El atributo alt permite describir el contenido de la imagen.
+      Los atributos width y height indican el ancho y el alto de la imagen en píxeles.
+      El atributo title proporciona un texto adicional que se muestra como información emergente cuando
+       el usuario pasa el mouse sobre la imagen -->
+
+    <!-- Imágenes locales (son las que se encuentran dentro del proyecto) -->
+    <img src="images/Eddie_cara_sola.jpeg" alt="Eddie solo la cara" width="240">
+    <img src="images/Eddie_dos_manos_con_cuernos.jpeg" alt="Eddie manos con cuernos" width="240">
+    <img src="images/Eddie_haciendo_click.jpeg" alt="Eddie haciendo click" width="240">
+    <img src="images/Eddie_una_mano_con_cuernos.jpeg" alt="Eddie una mano con cuernos" width="240">
+
+
+    <!-- Imágenes fuera del proyecto con ruta relativa -->
+    <img src="https://cdn.pixabay.com/photo/2022/10/11/12/38/dog-7514202_1280.jpg" alt="Perro sentado" width="500">
+
+    <br>
+
+    <!-- Imágenes como vínculos -->
+    <a href="https://pixabay.com/es/photos/tamarin-tit%C3%AD-cabeza-de-algod%C3%B3n-mono-8329530/" 
+    title="Pixabay - foto mono cabeza de algodón" target="_blank">
+        <img src="https://cdn.pixabay.com/photo/2023/10/20/13/48/tamarin-8329530_960_720.png" alt="Imagen mono">
+    </a>
+
+    <!-- Tablas -->
+    <!-- 
+        <table></table>     - declarar una tabla
+        <tr></tr>           - table row (filas)
+        <td></td>           - table data (celdas)
+        <th></th>           - table head (encabezado de la columna)
+    -->
+
+    <table border="1">
+        <tr>
+            <th>Curso</th>
+            <th>Día</th>
+            <th>Horario</th>
+        </tr>
+        <tr>
+            <td>Java</td>
+            <td>Lunes y miércoles</td>
+            <td>15 a 18.30hs.</td>
+        </tr>
+        <tr>
+            <td>MySQL</td>
+            <td>Viernes</td>
+            <td>15 a 19hs.</td>
+        </tr>
+        <tr>
+            <td>PHP</td>
+            <td>Martes</td>
+            <td>10 a 15hs.</td>
+        </tr>
+    </table>
+    <br><br>
+
+    <!-- colspan y rowspan -->
+     <table border="1"> <!-- border no se utiliza más, está obsoleto -->
+        <tr>
+            <th colspan="3" style="background-color: lightblue;">Cursos 2025</th>
+        </tr>
+        <tr>
+            <th>Curso</th>
+            <th>Día</th>
+            <th>Horario</th>
+        </tr>
+        <tr>
+            <td>Java</td>
+            <td>Lunes y miércoles</td>
+            <td>15 a 18.30hs.</td>
+        </tr>
+        <tr>
+            <td>MySQL</td>
+            <td>Viernes</td>
+            <td rowspan="2">15 a 19hs.</td>
+        </tr>
+        <tr>
+            <td>PHP</td>
+            <td>Martes</td>
+        </tr>
+     </table>
+
+</body>
+</html>
