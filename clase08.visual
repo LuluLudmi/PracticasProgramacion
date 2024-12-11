@@ -1,0 +1,237 @@
+Style:
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Yuji+Mai&display=swap');
+
+h1 {
+    font-family: Playfair Display;
+}
+
+h2 {
+    color: red;
+    background-color: antiquewhite;
+}
+
+h3 {
+    color: rgb(255, 0, 0);
+}
+
+h4 {
+    color: #ff0000;
+}
+
+h5 {
+    color: rgba(255, 00, 00, 0.3);
+}
+
+/* body {
+    color: blue;
+} */
+
+h6 {
+    font-size: 64px;
+}
+
+/* 
+Los elementos H (h1, h2, h3, etc.) al igual que p, son selectores de etiqueta.
+Están compuestos a partir del elemento al cual afecta.
+Afecta a todos los de su tipo, todos los de ese elemento tendrán la misma característica.
+*/
+
+/* Estilos de vínculos */
+
+/* link -> cuando aún no se ha visitado el vínculo */
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+/* visited -> cuando se ha visitado el vínculo */
+a:visited {
+    color: green;
+}
+
+/* hover -> cuando se pasa el mouse por arriba del vínculo */
+a:hover {
+    color: brown;
+    text-decoration: underline;
+}
+
+/* active -> cuando se hace click sobre el vínculo */
+a:active {
+    background-color: yellow;
+}
+
+/* Alinear contenido */
+p {
+    text-align: left;
+    text-transform: uppercase;
+}
+
+/* Selectores de ID y class */
+/* Hasta ahora, hemos utilizado selectores genéricos, lo cual signidica que las 
+modificaciones afectan a todos los elementos de un mismo tipo.
+Sin embargo, puede ocurrir que necesitemos modificar solo uno o algunos elementos 
+específicos, sin afectar a todos.
+Para ello, utilizaremos selectores especiales. */
+
+/* Selector de id */
+/* 
+Afecta a un solo elemento, el cual debe tener un id específico.
+Debe llevar un nombre sin espacios, ni palabras reservadas.
+Sin ñ ni tildes.
+El nombre debería ser descriptivo del contenido del elemento.
+En el CSS, se antepone el símbolo # al nombre del id.
+*/
+#parrafo-azul {
+    color: blue;
+}
+
+/* Selector de clase */
+/* 
+Puede afectar a más de un elemento.
+Llevan las mismas reglas de nomenclatura que los id.
+Lo utilizamos cunado queremos afectar a varios elementos, pero no a todos.
+En el CSS, se antepone el símbolo . al nombre de la clase.
+*/
+.parrafo-fondo {
+    background-color: lightblue;
+}
+/*
+Decoracion de etexto-> text-decoration
+*/
+
+/*la propiedad text-decoration en css permite añadir o quitar decoracion al texto.
+ Es util para enfatizar texto o para modificar su apariencia.
+ La propiedad text-decoration-line:define el tipo de linea decorativa
+ text-decoration-style: define el estilo de la linea
+ text-decoration-color:define el color de la linea decorativa
+  Se pueden declarar multiples valores en una sola linea
+*/
+.texto-decorado{
+    text-decoration: underline wavy blueviolet;
+}
+/*Propiedades de medidas*/
+/* with(ancho) -> especifica el ancho de un elemento. Es el espacio que ocuupara horizontalmente.
+padding(margen interno)-> especifica entre el borde y su contenido.
+Para margin y padding se puede especificar cada lado del elemento,en lugar de poner un solo color que afecte 
+a todos los lados.*/
+.caja{
+   width:200px;
+   height: 100px;
+   padding: 20px;
+   background-color: lightblue;
+
+}
+/*boder-> crear un borde alrededor del elemento.
+Sirve para darle un contorno*/
+.caja-borde{
+    width:150px;
+   height: 50px;
+   padding: 15px;
+   margin: 20px;
+   color: white;
+   background-color: lightcoral;
+   border: 2px solid black;
+   /* negrita e italica */
+   .negrita {
+    font-weight: bold;
+   }
+   .cursiva {
+    font-style: italic;
+   }
+
+}
+.list {
+    list-style-type: "\2705";
+}
+Probando estilos.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos</title>
+    <!-- <style>
+        body {
+            background-color: beige;
+        }
+
+        h1 {
+            color: aqua;
+        }
+    </style> -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1 style="color: green;">Aprendiendo CSS</h1>
+    <h1>Cómo implementar CSS en un documento</h1>
+    <h1>Recordar que en una página web no debería haber más de una etiqueta del tipo H1</h1>
+
+    <h2>Creando hojas de estilo</h2>
+
+    <h3>Probando colores h3</h3>
+    <h4>Probando colores h4</h4>
+    <h5>Probando colores h5</h5>
+    <h6>Probando tamaño fuente H6</h6>
+
+    <br><br>
+
+    <a href="probando_estilos2.html">Ir a probando estilos 2</a>
+
+    <br><br>
+
+    <p id="parrafo-azul" class="parrafo-fondo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed esse, a ut itaque voluptate commodi dolores quidem temporibus eos repellendus non iste adipisci nisi, fuga architecto, possimus blanditiis asperiores eaque!
+        Facere qui, quos rerum quas quia adipisci ipsam labore repudiandae dolorum iusto obcaecati eaque perspiciatis sed similique maxime atque! Corrupti, sequi blanditiis! Odio iusto totam debitis adipisci vero natus commodi?
+        Cumque, velit magnam voluptatum animi eligendi laudantium officia consequuntur ex iure quisquam. Praesentium debitis placeat reiciendis quibusdam repudiandae, doloribus quisquam quas temporibus iure a quaerat rem et, ducimus maiores. Perferendis.
+    </p>
+
+    <p class="parrafo-fondo  texto-decorado">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus quo voluptate ab sit quis corporis deleniti blanditiis. Harum exercitationem accusamus quia! Fugiat blanditiis sed explicabo, recusandae quidem aliquid quibusdam id?
+        Cum quisquam recusandae aliquid, ut soluta libero sed est numquam fuga eveniet laborum sapiente modi suscipit eaque sint quo unde totam, magnam quaerat aut expedita non! Sed perferendis sapiente libero?
+    </p>
+    <!-- elemento div-->
+     <!-- Es el mas utilizados, basicos y versatiles de HTML
+      Se utiliza para agrupar o contener otros elementos y darles estructura o estilo dentro de una pagina wed
+      No tiene un proposito especifico, sino que agrupa contenido para aplicar estilos o funcionalidad.
+    No tiene valor semantico.
+    Puede incluir cualquier tipo de contenido.-->
+    <div class="caja">Caja contenedora</div>
+    <div class="caja-borde">Contenido de ejemplo bordes</div>
+    <!-- Elemento span-->
+     <!-- span es un elemento en line que se uiliza como un contenedor generico.
+      Generalmente para agrupar un contenido dentro de un texto-->
+      <p>
+        Lorem ipsum <span class="negrita">dolor, sit amet</span> consectetur adipisicing elit. <span class="cursiva">ad repellat laboriosam nostrum </span> quidem molestias! Pariatur, quisquam earum voluptatum provident sint officiis, iste commodi corrupti consequatur minus rem quae libero!
+      </p>
+      <ul class="list">
+        <li> Elemento 1</li>
+        <li> Elemento 2</li>
+        <li> Elemento 3</li>
+        <li> Elemento 4</li>
+        <li> Elemento 5</li>
+      </ul>
+    
+</body>
+</html>
+Probando estilos2. html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probando estilos 2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>Bienvenido a Probando Estilos 2</h1>
+
+    <h2>Probamos fuentes y colores</h2>
+
+    <br><br>
+
+    <a href="probando_estilos.html">Volver a la página principal</a>
+    
+</body>
+</html>
