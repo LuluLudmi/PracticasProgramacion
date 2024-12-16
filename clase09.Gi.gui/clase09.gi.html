@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos</title>
+    <!-- <style>
+        body {
+            background-color: beige;
+        }
+
+        h1 {
+            color: aqua;
+        }
+    </style> -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+</head>
+<body>
+
+    <h1 style="color: green;">Aprendiendo CSS</h1>
+    <h1>Cómo implementar CSS en un documento</h1>
+    <h1>Recordar que en una página web no debería haber más de una etiqueta del tipo H1</h1>
+
+    <h2>Creando hojas de estilo</h2>
+
+    <h3>Probando colores h3</h3>
+    <h4>Probando colores h4</h4>
+    <h5>Probando colores h5</h5>
+    <h6>Probando tamaño fuente H6</h6>
+
+    <br><br>
+
+    <a href="probando_estilos2.html">Ir a probando estilos 2</a>
+
+    <br><br>
+
+    <p id="parrafo-azul" class="parrafo-fondo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed esse, a ut itaque voluptate commodi dolores quidem temporibus eos repellendus non iste adipisci nisi, fuga architecto, possimus blanditiis asperiores eaque!
+        Facere qui, quos rerum quas quia adipisci ipsam labore repudiandae dolorum iusto obcaecati eaque perspiciatis sed similique maxime atque! Corrupti, sequi blanditiis! Odio iusto totam debitis adipisci vero natus commodi?
+        Cumque, velit magnam voluptatum animi eligendi laudantium officia consequuntur ex iure quisquam. Praesentium debitis placeat reiciendis quibusdam repudiandae, doloribus quisquam quas temporibus iure a quaerat rem et, ducimus maiores. Perferendis.
+    </p>
+
+    <p class="parrafo-fondo texto-decorado">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus quo voluptate ab sit quis corporis deleniti blanditiis. Harum exercitationem accusamus quia! Fugiat blanditiis sed explicabo, recusandae quidem aliquid quibusdam id?
+        Cum quisquam recusandae aliquid, ut soluta libero sed est numquam fuga eveniet laborum sapiente modi suscipit eaque sint quo unde totam, magnam quaerat aut expedita non! Sed perferendis sapiente libero?
+    </p>
+
+    <!-- Elemento div -->
+    <!-- Es uno de los más utilizados, básicos y versátiles de HTML.
+    Se utiliza para agrupar o contener otros elementos y darles estructura o estilo 
+    dentro de una página web.
+    No tiene un propósito específico, sino que agrupa contenido para aplicar estilos o
+    funcionalidad.
+    No tiene valor semántico.
+    Puede incluir cualquier tipo de contenido. -->
+
+    <div class="caja">Caja contenedora</div>
+    <div class="caja-borde">Contenido de ejemplo bordes</div>
+
+    <!-- Elemento span -->
+    <!-- span es un elemento en línea que se utiliza como un contendor genérico.
+    Generalmente para agrupar un contenido dentro de un texto.
+    No tiene ningún estilo propio, ni semántica específica. Con lo cual es útil para aplicar
+    estilso específicos con CSS -->
+
+    <p>
+        Lorem ipsum <span class="negrita">dolor, sit amet</span> consectetur adipisicing elit. <span class="cursiva">Vitae, magni quidem</span> corporis id natus vel unde error veniam eligendi perferendis tempore, quo nobis dolorem sint ex delectus a debitis quibusdam.
+    </p>
+
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        <li>Elemento 5</li>
+    </ul>
+  <table>
+    <tr>
+        <td>
+            <a href="images/Eddie_cara_sola.jpeg">
+                <img src="images/Eddie_cara_sola.jpeg"
+                alt="Eddie_cara_sola" 
+                decoding="async"
+                height="240"
+                width="180">
+               </a>
+        </td>
+        <td>
+            <a href="images/Eddie_dos_manos_con_cuernos.jpeg">
+                <img src="images/Eddie_dos_manos_con_cuernos.jpeg"
+                alt="Eddie_dos_manos_con_cuernos"
+                decoding="async"
+                height="240"
+                width="180">
+             
+            </a>
+        </td>
+        <td>
+            <a href="images/Eddie_una_mano_con_cuernos.jpeg">
+                <img src="images/Eddie_una_mano_con_cuernos.jpeg"
+                alt="Eddie_una_mano_con_cuernos"
+                decoding="async"
+                height="240"
+                width="180">
+
+            </a>
+        </td>
+    </tr>
+  </table>
+
+ <!-- -->
+  <br> <br> <br>
+ <table>
+    <tr>
+        <td>
+            <a href="images/Eddie_cara_sola.jpeg"
+            data-lightbox="roadtrip"
+            data-title="Eddie_cara_sola">
+                <img src="images/Eddie_cara_sola.jpeg"
+                alt="Eddie_cara_sola" 
+                decoding="async">
+               </a>
+        </td>
+        <td>
+            <a href="images/Eddie_dos_manos_con_cuernos.jpeg"
+            data-lightbox="roadtrip"
+            data-title="Eddie_dos_manos_con_cuernos">
+                <img src="images/Eddie_dos_manos_con_cuernos.jpeg"
+                alt="Eddie_dos_manos_con_cuernos"
+                decoding="async"
+                >
+             
+            </a>
+        </td>
+        <td>
+            <a href="images/Eddie_una_mano_con_cuernos.jpeg"
+            data-lightbox="roadtrip"
+            data-title="Eddie_una_mano_con_cuernos">
+                <img src="images/Eddie_una_mano_con_cuernos.jpeg"
+                alt="Eddie_una_mano_con_cuernos"
+                decoding="async">
+
+            </a>
+        </td>
+    </tr>
+  </table>
+  <script src="js/lightbox-plus-jquery.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Yuji+Mai&display=swap');
+
+h1 {
+    font-family: Playfair Display;
+}
+
+h2 {
+    color: red;
+    background-color: antiquewhite;
+}
+
+h3 {
+    color: rgb(255, 0, 0);
+}
+
+h4 {
+    color: #ff0000;
+}
+
+h5 {
+    color: rgba(255, 00, 00, 0.3);
+}
+
+/* body {
+    color: blue;
+} */
+
+h6 {
+    font-size: 64px;
+}
+
+/* 
+Los elementos H (h1, h2, h3, etc.) al igual que p, son selectores de etiqueta.
+Están compuestos a partir del elemento al cual afecta.
+Afecta a todos los de su tipo, todos los de ese elemento tendrán la misma característica.
+*/
+
+/* Estilos de vínculos */
+
+/* link -> cuando aún no se ha visitado el vínculo */
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+/* visited -> cuando se ha visitado el vínculo */
+a:visited {
+    color: green;
+}
+
+/* hover -> cuando se pasa el mouse por arriba del vínculo */
+a:hover {
+    color: brown;
+    text-decoration: underline;
+}
+
+/* active -> cuando se hace click sobre el vínculo */
+a:active {
+    background-color: yellow;
+}
+
+/* Alinear contenido */
+p {
+    text-align: left;
+    text-transform: uppercase;
+}
+
+/* Selectores de ID y class */
+/* Hasta ahora, hemos utilizado selectores genéricos, lo cual signidica que las 
+modificaciones afectan a todos los elementos de un mismo tipo.
+Sin embargo, puede ocurrir que necesitemos modificar solo uno o algunos elementos 
+específicos, sin afectar a todos.
+Para ello, utilizaremos selectores especiales. */
+
+/* Selector de id */
+/* 
+Afecta a un solo elemento, el cual debe tener un id específico.
+Debe llevar un nombre sin espacios, ni palabras reservadas.
+Sin ñ ni tildes.
+Puede contener un número pero no empezar con un número.
+El nombre debería ser descriptivo del contenido del elemento.
+En el CSS, se antepone el símbolo # al nombre del id.
+*/
+#parrafo-azul {
+    color: blue;
+}
+
+/* Selector de clase */
+/* 
+Puede afectar a más de un elemento.
+Llevan las mismas reglas de nomenclatura que los id.
+Lo utilizamos cunado queremos afectar a varios elementos, pero no a todos.
+En el CSS, se antepone el símbolo . al nombre de la clase.
+*/
+.parrafo-fondo {
+    background-color: lightblue;
+}
+
+/* Decoración del texto -> text-decoration */
+/* La propiedad text-decoration en CSS permite añadir o quitar decoraciones
+al texto, como subrayados, tachados, etc.
+Es útil para enfatizar texto o para modificar su apariencia sin alterar
+el contenido en HTML. */
+/* La propiedad text-decoration puede controlarse con 3 subpropiedades:
+tex-decoration-line: define el tipo de línea decorativa (subrayado, tachado)
+text-decoration-style: define el estilo de la línea (punteada, ondulada, sólida)
+text-decoration-color: define el color de la línea decorativa
+
+Se pueden declarar múltiples valores en una sola línea:
+text-decoration: <line> <style> <color>
+*/
+.texto-decorado {
+    text-decoration: underline wavy blueviolet;
+}
+
+/* Propiedades de medidas */
+/* 
+width (ancho) -> especifica el ancho de un elemento. Es el espacio que ocupará horizontalmente.
+height (alto) -> especifica la altura de un elemento. Es el espacio que ocupará verticalmente.
+margin (margen externo) -> especifica el espacio fuera del elemento. Lo separa de otros elementos.
+padding (margen interno) -> especifica el espacio entre el borde y su contenido.
+
+Para margin y padding se pueden especificar cada lado del elemento, en lugar de poner un solo
+valor que afecte a todos los lados.
+- top -> el margen superior
+- right -> es el margen derecho
+- bottom -> es el margen inferior
+- left -> es el margen izquierdo
+*/
+
+.caja {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    background-color: lightblue;
+}
+
+/* 
+border -> crear un borde alrededor del elemento.
+Sirve para darle un contorno visible al elemento.
+Se puede definir el grosor, el estilo y el color del borde.
+*/
+
+.caja-borde {
+    width: 150px;
+    height: 50px;
+    padding: 15px;
+    margin: 20px;
+    color: white;
+    background-color: lightcoral;
+    border: 2px solid black;
+}
+
+/* negrita e itálica */
+.negrita {
+    font-weight: bold;
+} 
+
+.cursiva {
+    font-style: initial;
+}
+
+/* valores adicionales para las listas */
+ul {
+    list-style-type: "\2705";
+    /*
+    \1f44d -> pulgar arriba
+    \2606 -> estrellas vacías
+    \2605 -> estrellas negras
+    \2600 -> soles negros
+    \2764 -> corazones
+    \2705 -> tilde verde
+    */
+}
+table img
+{
+    height: 240px;
+    width: 180px;
+}
+
+
+
+
